@@ -12,7 +12,7 @@ class city_Repos{
             return city;
 
         } catch (error) {
-            console.log("Somethong went wrong iin the repository layer");
+            console.log("Something went wrong in the repository layer");
             throw{ error }; 
         }        
     }
@@ -28,7 +28,7 @@ class city_Repos{
             return true;
             
         } catch (error) {
-            console.log("Somethong went wrong iin the repository layer");
+            console.log("Something went wrong in the repository layer");
             throw{ error }; 
         }
     }
@@ -45,7 +45,7 @@ class city_Repos{
             return city;
             
         } catch (error) {
-            console.log("Somethong went wrong iin the repository layer");
+            console.log("Something went wrong in the repository layer");
             throw{ error }; 
         }
     }
@@ -57,8 +57,10 @@ class city_Repos{
             return city;
 
         } catch (error) {
-            console.log("Somethong went wrong iin the repository layer");
+            console.log("Something went wrong in the repository layer");
             throw{ error }; 
         }
     }
 }
+
+module.exports = city_Repos;
