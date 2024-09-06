@@ -2,12 +2,12 @@ const { City } =require('../models/index');
 
 class city_Repos{
 
-    async create_city(name){
+    async create_city({ name }){
         try {
             
             const city = await City.create({
-                name : name //the key represents the name on our model and the value name is the name given by controller
-            })
+                name //the key represents the name on our model and the value name is the name given by controller
+            });
 
             return city;
 
@@ -42,6 +42,9 @@ class city_Repos{
                 }
             }) ;
 
+            // const city =await City.findByPk(city_Id);
+            // city.name=data.name;
+            // await city.save();
             return city;
             
         } catch (error) {
@@ -59,6 +62,18 @@ class city_Repos{
         } catch (error) {
             console.log("Something went wrong in the repository layer");
             throw{ error }; 
+        }
+    }
+
+    async get_All_City() {
+        try {
+
+            const city = await City.findAll();
+            return city;
+            
+        } catch (error) {
+            console.log("Something went wrong in the repository layer");
+            throw{ error };
         }
     }
 }

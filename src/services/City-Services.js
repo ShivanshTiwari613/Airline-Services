@@ -53,6 +53,18 @@ class CityService {
         }
     }
 
+    async get_All_City(){
+        try {
+
+            const city = await this.CityRepo.get_All_City();
+            return city;
+            
+        } catch (error) {
+            console.log("somethings wrong with the Repository");
+            throw{error};
+        }
+    }
+
 }
 
 
