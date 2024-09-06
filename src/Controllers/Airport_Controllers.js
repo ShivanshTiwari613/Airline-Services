@@ -1,22 +1,22 @@
-const { cityService } = require('../services/index');
+const { airportService } = require('../services/index');
 
-const CityService = new cityService();
+const AirportService = new airportService();
 
 /**
- * POST : /city
+ * POST : /airport
  * data : {name: Bangalore}
  */
 
 
-const create_city = async (req,res) => {
+const create_airports = async (req,res) => {
 
     try {
 
-        const city = await CityService.create_city(req.body);
+        const airport = await AirportService.create_airport(req.body);
         return res.status(201).json({
-            data : city,
+            data : airport,
             success:true,
-            message: "Successfully created  a city",
+            message: "Successfully created  a airport",
             err :{},
         });
         
@@ -24,7 +24,7 @@ const create_city = async (req,res) => {
         console.log(error);
         return res.status(500).json({
             data: {},
-            message: "Not abel to create a city",
+            message: "Not abel to create a airport",
             success: false,
             err: error
         });
@@ -34,15 +34,15 @@ const create_city = async (req,res) => {
 
 //the convention for delete -> /city/:id [:id] -> refer to params format of the convention
 
-const deleat_city = async (req,res) => {
+const deleat_airports = async (req,res) => {
     
     try {
 
-        const response = await CityService.deleat_city(req.params.id);
+        const response = await AirportService.deleat_airport(req.params.id);
         return res.status(200).json({
             data : response,
             success:true,
-            message: "Successfully deleted  a city",
+            message: "Successfully deleted  a airport",
             err :{},
         });
 
@@ -50,24 +50,24 @@ const deleat_city = async (req,res) => {
         console.log(error);
         return res.status(500).json({
             data: {},
-            message: "Not abel to delete a city",
+            message: "Not abel to delete a airport",
             success: false,
             err: error
         });
     }
 }
 
-// GET: /city/:id will be going through parameters
+// GET: /airport/:id will be going through parameters
 
-const get_City = async (req,res) => {
+const get_airports = async (req,res) => {
     
     try {
 
-        const response = await CityService.get_City(req.params.id);
+        const response = await AirportService.get_airport(req.params.id);
         return res.status(200).json({
             data : response,
             success:true,
-            message: "Successfully fetched  a city",
+            message: "Successfully fetched  a airport",
             err :{},
         });
         
@@ -75,24 +75,24 @@ const get_City = async (req,res) => {
         console.log(error);
         return res.status(500).json({
             data: {},
-            message: "Not abel to get a city",
+            message: "Not abel to get a airport",
             success: false,
             err: error
         });
     }
 }
 
-//Patch -> /city/:id -> req.body 
+//Patch -> /airport/:id -> req.body 
 
-const update_City = async (req,res) => {
+const update_airports = async (req,res) => {
     
     try {
 
-        const response = await CityService.update_City(req.params.id , req.body);
+        const response = await AirportService.update_Airport(req.params.id , req.body);
         return res.status(200).json({
             data : response,
             success:true,
-            message: "Successfully updated  a city",
+            message: "Successfully updated  a airport",
             err :{},
         });
         
@@ -100,29 +100,29 @@ const update_City = async (req,res) => {
         console.log(error);
         return res.status(500).json({
             data: {},
-            message: "Not abel to updated a city",
+            message: "Not abel to updated a airport",
             success: false,
             err: error
         });
     }
 }
 
-const get_All_City =async (req,res) =>{
+const get_All_airports =async (req,res) =>{
 
     try {
 
-        const response =await CityService.get_All_City(req.query);
+        const response =await AirportService.get_All_Airports(req.query);
         return res.status(200).json({
             data : response,
             success:true,
-            message: "Successfully updated  a city",
+            message: "Successfully updated  a airport",
             err :{},
         });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
             data: {},
-            message: "Not abel to updated a city",
+            message: "Not abel to updated a airport",
             success: false,
             err: error
         });
@@ -130,9 +130,9 @@ const get_All_City =async (req,res) =>{
 }
 
 module.exports = {
-    create_city,
-    deleat_city,
-    get_City,
-    update_City,
-    get_All_City
+    create_airports,
+    deleat_airports,
+    get_airports,
+    update_airports,
+    get_All_airports
 }

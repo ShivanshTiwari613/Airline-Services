@@ -1,14 +1,14 @@
-const { cityRepo } = require('../repository/index');
+const { airportRepo } = require('../repository/index');
 
-class CityService {
+class AirportService {
     constructor() {
-        this.CityRepo = new cityRepo(); 
+        this.AirportRepo = new airportRepo(); 
     }
 
-    async create_city(data){
+    async create_airport(data){
         try {
             
-            const city = await this.CityRepo.create_city(data);
+            const city = await this.AirportRepo.create_airport(data);
             return city;
     
         } catch (error) {
@@ -17,10 +17,10 @@ class CityService {
         }
     }
     
-    async deleat_city(city_Id){
+    async deleat_airport(city_Id){
         try {
     
-            const response = await this.CityRepo.deleat_city(city_Id);
+            const response = await this.AirportRepo.deleat_airport(city_Id);
             return response;
             
         } catch (error) {
@@ -29,10 +29,10 @@ class CityService {
         }
     }
     
-    async get_City(city_Id){
+    async get_airport(city_Id){
         try {
     
-            const city = await this.CityRepo.get_City(city_Id);
+            const city = await this.AirportRepo.get_airport(city_Id);
             return city; 
             
         } catch (error) {
@@ -41,10 +41,13 @@ class CityService {
         }
     }
     
-    async update_City(city_Id , data) {
+    async update_Airport(city_Id , data) {
         try {
     
-            const city = await this.CityRepo.update_City(city_Id , data);
+            const city = await this.AirportRepo.update_Airport(city_Id , {
+                name:data.name,
+                address:data.address
+            });
             return city; 
             
         } catch (error) {
@@ -53,11 +56,11 @@ class CityService {
         }
     }
 
-    async get_All_City(filter){
+    async get_All_Airports(filter){
         try {
 
-            const city = await this.CityRepo.get_All_City({name: filter.name});
-            return city;
+            const airport = await this.AirportRepo.get_All_Airports({name: filter.name});
+            return airport;
             
         } catch (error) {
             console.log("somethings wrong with the Repository");
@@ -68,4 +71,4 @@ class CityService {
 }
 
 
-module.exports = CityService;
+module.exports = AirportService;
