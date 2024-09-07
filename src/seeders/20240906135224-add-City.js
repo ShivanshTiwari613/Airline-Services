@@ -72,7 +72,7 @@ module.exports = {
         name:'Kanpur',
         createdAt:new Date(), 
         updatedAt:new Date()
-        
+
       }
   ], {} )
   },
